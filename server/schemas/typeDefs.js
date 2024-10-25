@@ -14,6 +14,11 @@ const typeDefs = `
     user: User
   }
 
+    type AuthPayload {
+    token: String
+    user: User
+  }
+
   type Query {
     users: [User]
     user(userId: ID!): User
@@ -24,7 +29,7 @@ const typeDefs = `
     addUser(username: String!, email: String!, password: String!): AuthPayload
     removeUser(userId: ID!): User
     login(email: String!, password: String!): Auth
-    verifyEmail(token: String!, userId: ID!): AuthPayload
+    verifyEmail(token: String!, userId: ID!): Auth
     forgotPassword(email: String!): Boolean
     resendEmailVerification(email: String!): Boolean
     resetPassword(token: String!, email: String!, newPassword: String!): AuthPayload
